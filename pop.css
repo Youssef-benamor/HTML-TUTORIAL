@@ -1,0 +1,30 @@
+label{
+    justify-content: center;
+   display: flex;
+   align-items: center;
+   align-content: center;
+}
+input{
+    display: flex;
+}
+button{
+    background-color: blueviolet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    top: 100%;
+    left: 100%;
+    transition: all 0.7s;
+    border-radius: 5px;
+    
+
+}
+button:hover{filter: drop-shadow(1px 1px 20px blueviolet);
+}
+
+    
+button{
+    background-color: blueviolet;
+    transition: background 6s;
+}
