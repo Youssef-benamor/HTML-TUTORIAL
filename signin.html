@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="signin.css" />
+    <title>Sign In</title>
+    <script>
+      // Function to handle custom validation messages
+      function validateUsername() {
+        const username = document.getElementById("username");
+        const errorMessage = document.getElementById("username-error");
+        if (!username.value) {
+          username.setCustomValidity("Username is required");
+          errorMessage.textContent = "Username is required";
+        } else {
+          username.setCustomValidity("");
+          errorMessage.textContent = "";
+        }
+      }
+
+      function validatePassword() {
+        const password = document.getElementById("pass");
+        const errorMessage = document.getElementById("password-error");
+        if (!password.value) {
+          password.setCustomValidity("Password is required");
+          errorMessage.textContent = "Password is required";
+        } else {
+          password.setCustomValidity("");
+          errorMessage.textContent = "";
+        }
+      }
+
+      // Form validation before submitting
+      function validateForm(event) {
+        event.preventDefault(); // Prevent form from submitting
+
+        // Validate fields
+        validateUsername();
+        validatePassword();
+
+        // If there are no custom validity errors, submit the form
+        const username = document.getElementById("username");
+        const password = document.getElementById("pass");
+
+        if (!username.validity.valid || !password.validity.valid) {
+          return false;
+        }
+
+        // If everything is valid, submit the form (you can replace this with actual form submission logic)
+        alert("Form submitted successfully!");
+        return true;
+      }
+    </script>
+  </head>
+  <body class="h-screen w-full">
+    <div
+      class="flex-col shadow-lg shadow-indigo-500/40 w-fit pb-3 rounded-lg flex justify-center items-center content-center h-fit m-auto mt-40 p-5 pb-8"
+    >
+      <div
+        class="flex gap-2 justify-center content-center items-center font-bold text-3xl"
+      >
+        <h2>Log</h2>
+        <h2 class="text-[#fa7269]">In</h2>
+      </div>
+
+      <!-- Login Buttons -->
+      <div
+        class="flex flex-col justify-center items-center content-center gap-6 mt-8 rounded-lg"
+      >
+        <button
+          class="border-2 px-[88px] py-2 flex justify-center items-center content-center rounded-lg"
+        >
+          <img
+            src="gg.png"
+            width="40px"
+            class="flex justify-around items-center content-center"
+          />
+          Log in with Google
+        </button>
+        <button
+          class="border-2 px-20 py-2 flex justify-center items-center content-center text-white bg-[#1877f2] rounded-lg"
+        >
+          <img
+            src="vecteezy_facebook-icons-facebook-logo-facebook-flat-icons_31737191.png"
+            class="flex justify-around flex-row items-center content-center"
+            width="40px"
+          />
+          Log in with Facebook
+        </button>
+      </div>
+
+      <!-- Divider -->
+      <div
+        class="flex flex-col justify-center items-center content-center text-[#ccd1e3] mt-4"
+      >
+        or
+      </div>
+
+      <div
+        class="flex flex-col justify-center items-center content-center gap-6 mt-8 rounded-md"
+      >
+        <form
+          class="w-[400px] px-8"
+          action="#"
+          method="POST"
+          novalidate
+          onsubmit="return validateForm(event)"
+        >
+          <!-- Username Field -->
+          <div>
+            <label
+              for="username"
+              class="flex items-center gap-2 text-gray-500 font-medium"
+            >
+              <img class="" src="mobile_app-22-512.webp" width="20px" />
+              Username
+            </label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Your Email"
+              class="border-2 px-4 py-2 rounded-lg w-full focus:outline-none focus:ring-4"
+              oninput="validateUsername()"
+            />
+            <div id="username-error" class="text-red-500 mt-2"></div>
+          </div>
+
+          <!-- Password Field -->
+          <div class="mt-4">
+            <label for="pass" class="flex flex-col text-gray-500 font-medium">
+              <img src="password-icon-png-4.jpg" width="20px" />
+              Password
+            </label>
+            <input
+              class="border-2 px-4 py-2 rounded-lg w-full focus:ring-4"
+              type="password"
+              id="pass"
+              name="password"
+              minlength="8"
+              placeholder="Your Password"
+              oninput="validatePassword()"
+            />
+            <div id="password-error" class="text-red-500 mt-2"></div>
+          </div>
+
+          <div class="mt-4">
+            <button
+              type="submit"
+              class="text-white bg-[#fa7269] border-2 px-[140px] py-2 flex justify-center items-center content-center flex-col rounded-md hover:bg-[#cc534a]"
+            >
+              Log IN
+            </button>
+          </div>
+        </form>
+        <div class="mt-4">
+          <div>
+            <span
+              class="flex justify-center items-center content-center pb-4 font-sans"
+              >Forget password?</span
+            >
+          </div>
+          <div>
+            <span>
+              Don't have an account?
+              <a href="#singup" class="font-bold">Sign up</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

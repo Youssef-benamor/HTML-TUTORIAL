@@ -1,11 +1,24 @@
 .dm-serif-text-regular {
-  font-family: "DM Serif Text", serif;
-  font-weight: 400;
-  font-style: italic;
+  font-family: LyftProUI, sans-serif;
 }
 button:hover {
   background-color: aqua;
 }
 a:hover {
   color: aqua;
+}
+@font-face {
+  font-family: "LyftProUI";
+  src: url("https://cdn.lyft.com/static/coreui/LyftProUI-Bold.woff2")
+    format(woff2);
+  font-weight: 800px;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer {
+  button {
+    @apply text-3xl;
+  }
 }
